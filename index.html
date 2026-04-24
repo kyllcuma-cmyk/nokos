@@ -347,6 +347,24 @@
   .card.featured.meta .btn-order i { color: var(--wa-green); }
   .card.featured.meta .btn-order:hover { background: rgba(37,211,102,0.1); border-color: var(--wa-green); }
 
+  /* ── STOCK STYLING ── */
+  .stock-badge {
+    display: inline-block; padding: 4px 12px; margin-bottom: 16px;
+    background: rgba(0, 212, 255, 0.1); border: 1px solid rgba(0, 212, 255, 0.3);
+    border-radius: 8px; font-size: 0.75rem; font-weight: 700;
+    color: var(--neon-blue); letter-spacing: 1px;
+  }
+  .stock-badge.empty {
+    background: rgba(255, 45, 120, 0.1); border-color: rgba(255, 45, 120, 0.3);
+    color: var(--neon-pink);
+  }
+  /* Tombol Mati (Saat Stok Habis) */
+  .btn-order.disabled {
+    background: rgba(255, 255, 255, 0.02); border-color: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.3); pointer-events: none; box-shadow: none;
+  }
+  .btn-order.disabled i { color: rgba(255, 255, 255, 0.3); }
+
   /* ── FEATURES ── */
   .features { padding: 100px 24px; }
   .features-inner { max-width: 1200px; margin: 0 auto; }
@@ -509,55 +527,70 @@
         <h2 class="sec-title">Pilih Nomor Kebutuhanmu</h2>
       </div>
       <div class="cards-grid">
-        <div class="card reveal">
+        
+        <div class="card reveal" data-id="nokos_fresh">
           <div class="card-icon"><i class="ph ph-device-mobile"></i></div>
           <div class="card-name">Nokos Fresh</div>
+          <div class="stock-badge">Stok: <span class="stock-count">Memuat...</span></div>
           <div class="card-desc">Nomor kosong segar, siap pakai langsung. Cocok untuk kebutuhan dasar verifikasi akun sosial media.</div>
           <div class="card-price-wrap"><div class="card-price">5K</div><div class="card-price-unit">/ nomor</div></div>
           <a class="btn-order" href="https://wa.me/6285113036835?text=Halo%20Admin%20yanzmewaaaa%20store,%20saya%20mau%20order%20Nokos%20Fresh%20harga%205k" target="_blank"><i class="ph ph-whatsapp-logo"></i> Order via WA</a>
         </div>
-        <div class="card reveal">
+        
+        <div class="card reveal" data-id="nokos_garansi">
           <div class="card-icon"><i class="ph ph-shield-check"></i></div>
           <div class="card-name">Nokos Fresh Bergaransi</div>
+          <div class="stock-badge">Stok: <span class="stock-count">Memuat...</span></div>
           <div class="card-desc">Nomor fresh dengan garansi penggantian jika OTP tidak masuk atau nomor terkendala.</div>
           <div class="card-price-wrap"><div class="card-price">7K</div><div class="card-price-unit">/ nomor</div></div>
           <a class="btn-order" href="https://wa.me/6285113036835?text=Halo%20Admin%20yanzmewaaaa%20store,%20saya%20mau%20order%20Nokos%20Fresh%20Bergaransi%20harga%207k" target="_blank"><i class="ph ph-whatsapp-logo"></i> Order via WA</a>
         </div>
-        <div class="card reveal">
+        
+        <div class="card reveal" data-id="nokos_standar">
           <div class="card-icon"><i class="ph ph-lock-key"></i></div>
           <div class="card-name">Nokos Standar Bergaransi</div>
+          <div class="stock-badge">Stok: <span class="stock-count">Memuat...</span></div>
           <div class="card-desc">Nomor standar yang sudah teruji aman dengan garansi. Ideal untuk pemakaian jangka panjang.</div>
           <div class="card-price-wrap"><div class="card-price">10K</div><div class="card-price-unit">/ nomor</div></div>
           <a class="btn-order" href="https://wa.me/6285113036835?text=Halo%20Admin%20yanzmewaaaa%20store,%20saya%20mau%20order%20Nokos%20Standar%20Bergaransi%20harga%2010k" target="_blank"><i class="ph ph-whatsapp-logo"></i> Order via WA</a>
         </div>
-        <div class="card reveal">
+        
+        <div class="card reveal" data-id="nokos_luar_negeri">
           <div class="card-icon"><i class="ph ph-globe-hemisphere-west"></i></div>
           <div class="card-name">Nokos Luar Negeri</div>
+          <div class="stock-badge">Stok: <span class="stock-count">Memuat...</span></div>
           <div class="card-desc">Nomor virtual luar negeri. <strong>Bebas request nomor negara mana aja!</strong> Cocok banget untuk platform internasional.</div>
           <div class="card-price-wrap"><div class="card-price">15K</div><div class="card-price-unit">/ nomor</div></div>
           <a class="btn-order" href="https://wa.me/6285113036835?text=Halo%20Admin%20yanzmewaaaa%20store,%20saya%20mau%20order%20Nokos%20Luar%20Negeri%20harga%2015k.%20Saya%20mau%20request%20negara:%20..." target="_blank"><i class="ph ph-whatsapp-logo"></i> Order via WA</a>
         </div>
-        <div class="card featured premium reveal">
+        
+        <div class="card featured premium reveal" data-id="nokos_premium">
           <div class="card-icon"><i class="ph ph-rocket-launch"></i></div>
           <div class="card-name">Nokos Premium + Blast</div>
+          <div class="stock-badge">Stok: <span class="stock-count">Memuat...</span></div>
           <div class="card-desc">Paket premium lengkap dengan fitur blast/broadcast. Performa tinggi untuk kebutuhan marketing.</div>
           <div class="card-price-wrap"><div class="card-price">25K</div><div class="card-price-unit">/ nomor</div></div>
           <a class="btn-order" href="https://wa.me/6285113036835?text=Halo%20Admin%20yanzmewaaaa%20store,%20saya%20mau%20order%20Nokos%20Premium%20%2B%20Blast%20harga%2025k" target="_blank"><i class="ph ph-whatsapp-logo"></i> Order via WA</a>
         </div>
-        <div class="card reveal">
+        
+        <div class="card reveal" data-id="nokos_fisik">
           <div class="card-icon"><i class="ph ph-sim-card"></i></div>
           <div class="card-name">Nokos Kartu Asli Bergaransi</div>
+          <div class="stock-badge">Stok: <span class="stock-count">Memuat...</span></div>
           <div class="card-desc">Nomor teregistrasi dengan kartu SIM fisik asli bergaransi. Keamanan & trust score tertinggi untuk akun penting.</div>
           <div class="card-price-wrap"><div class="card-price">35K</div><div class="card-price-unit">/ nomor</div></div>
           <a class="btn-order" href="https://wa.me/6285113036835?text=Halo%20Admin%20yanzmewaaaa%20store,%20saya%20mau%20order%20Nokos%20Kartu%20Asli%20Bergaransi%20harga%2035k" target="_blank"><i class="ph ph-whatsapp-logo"></i> Order via WA</a>
         </div>
-        <div class="card featured meta reveal">
+        
+        <div class="card featured meta reveal" data-id="meta_verified">
           <div class="card-icon"><i class="ph-fill ph-seal-check"></i></div>
           <div class="card-name">WA Meta Verified</div>
+          <div class="stock-badge">Stok: <span class="stock-count">Memuat...</span></div>
           <div class="card-desc">Setup akun WhatsApp Business API Resmi bercentang hijau (Meta Verified). Tingkatkan kredibilitas & trust bisnismu.</div>
           <div class="card-price-wrap"><div class="card-price">100K</div><div class="card-price-unit">/ akun</div></div>
           <a class="btn-order" href="https://wa.me/6285113036835?text=Halo%20Admin%20yanzmewaaaa%20store,%20saya%20mau%20order%20WA%20Meta%20Verified%20harga%20100k" target="_blank"><i class="ph ph-whatsapp-logo"></i> Order via WA</a>
         </div>
+
       </div>
     </div>
   </section>
@@ -684,6 +717,64 @@
       if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
+
+  /* ========================================================
+     SISTEM STOK OTOMATIS DARI SHEETDB (DASBOR GOOGLE SHEETS)
+     ======================================================== */
+  // Ini link API SheetDB kamu:
+  const API_URL = 'https://sheetdb.io/api/v1/obyudf0iq3hle';
+
+  async function terapkanStokOtomatis() {
+    try {
+      // Teks sementara saat loading ngambil data
+      document.querySelectorAll('.stock-count').forEach(el => el.innerText = "Mengecek stok...");
+
+      // Mengambil data dari Google Sheets via SheetDB
+      const response = await fetch(API_URL);
+      const data = await response.json();
+
+      // Mengubah format data biar gampang dibaca
+      const dataStok = {};
+      data.forEach(item => {
+        dataStok[item.id_produk] = parseInt(item.stok);
+      });
+
+      // Proses update ke tiap-tiap card di website
+      const cards = document.querySelectorAll('.card[data-id]');
+      
+      cards.forEach(card => {
+        const idProduk = card.getAttribute('data-id');
+        const elmStok = card.querySelector('.stock-count');
+        const elmBadge = card.querySelector('.stock-badge');
+        const btnOrder = card.querySelector('.btn-order');
+        
+        // Cek apakah ID produk ada di Sheets
+        if (dataStok[idProduk] !== undefined) {
+          const sisaStok = dataStok[idProduk];
+          
+          if (sisaStok > 0) {
+            elmStok.innerText = sisaStok + " Tersedia";
+          } else {
+            // Kalau stok habis (angkanya 0)
+            elmStok.innerText = "HABIS";
+            elmBadge.classList.add('empty');
+            btnOrder.classList.add('disabled');
+            btnOrder.innerHTML = '<i class="ph ph-x-circle"></i> Stok Habis';
+            btnOrder.removeAttribute('href'); // Mematikan link WA
+          }
+        } else {
+          // Kalau ID produk nggak ketemu di Sheets
+          elmStok.innerText = "?";
+        }
+      });
+    } catch (error) {
+      console.log('Gagal memuat stok:', error);
+      document.querySelectorAll('.stock-count').forEach(el => el.innerText = "? Tersedia");
+    }
+  }
+
+  // Panggil fungsi pas website dibuka
+  terapkanStokOtomatis();
 </script>
 </body>
 </html>
