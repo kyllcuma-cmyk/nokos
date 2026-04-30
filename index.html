@@ -14,6 +14,7 @@
     --neon-pink: #ff2d78;
     --neon-green: #00ffb3;
     --wa-green: #25d366;
+    --tg-blue: #0088cc;
     --star-gold: #ffbe0b;
     --dark-bg: #050508;
     --dark-card: rgba(255,255,255,0.03);
@@ -275,7 +276,7 @@
   .card-price-unit { font-size: 0.85rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; }
 
   /* ── CARD BUTTONS ── */
-  .card-actions { display: flex; flex-direction: column; gap: 12px; }
+  .card-actions { display: flex; flex-direction: column; gap: 10px; }
   
   .btn-pay { 
     display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 14px; 
@@ -287,14 +288,17 @@
   .btn-pay:hover { background: var(--neon-blue); color: #000; box-shadow: 0 0 25px rgba(0,212,255,0.4); }
   .btn-pay:hover i { color: #000; }
 
+  .card-hint { text-align: center; font-size: 0.75rem; color: rgba(200,190,255,0.4); margin: 2px 0; letter-spacing: 0.5px; }
+
   .btn-chat {
-    display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 12px;
+    display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px;
     background: transparent; border: 1px solid rgba(255,255,255,0.1); color: var(--text-muted);
-    font-family: 'Syne', sans-serif; font-weight: 600; font-size: 0.9rem; border-radius: 14px; 
-    text-decoration: none; cursor: none; transition: 0.3s;
+    font-family: 'Syne', sans-serif; font-weight: 600; font-size: 0.85rem; border-radius: 12px; 
+    text-decoration: none; cursor: none; transition: 0.3s; width: 100%;
   }
   .btn-chat i { font-size: 1.2rem; }
   .btn-chat:hover { background: rgba(255,255,255,0.05); color: #fff; border-color: rgba(255,255,255,0.3); }
+  
   .btn-pay.disabled { background: rgba(255,255,255,0.02); border-color: rgba(255,255,255,0.05); color: rgba(255,255,255,0.3); pointer-events: none; }
   .btn-pay.disabled i { color: rgba(255,255,255,0.3); }
 
@@ -329,24 +333,18 @@
   }
   .modal-price-box .price-value { font-family: 'Orbitron', sans-serif; font-size: 1.6rem; font-weight: 900; background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
   
-  /* CONTAINER QRIS + LOADER ANIMATION */
   .qr-container { width: 220px; height: 220px; margin: 0 auto 16px; position: relative; }
-  
   @keyframes spin { 100% { transform: rotate(360deg); } }
   .qr-skeleton {
     width: 100%; height: 100%; border-radius: 12px; background: rgba(255,255,255,0.03);
     display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
     border: 1px dashed rgba(255,255,255,0.15); color: var(--neon-blue);
   }
-  
   .modal-qr-img {
-    width: 100%; height: 100%; object-fit: contain;
-    border-radius: 12px; background: #fff; padding: 8px;
-    box-shadow: 0 0 20px rgba(255,255,255,0.1);
-    display: none; /* Disembunyikan sampai selesai loading */
+    width: 100%; height: 100%; object-fit: contain; border-radius: 12px; background: #fff; padding: 8px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.1); display: none;
   }
 
-  /* PANDUAN (LIST) */
   .modal-instructions {
     text-align: left; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;
     background: rgba(255,255,255,0.02); padding: 16px 20px; border-radius: 12px;
@@ -356,23 +354,27 @@
   .modal-instructions li { margin-bottom: 8px; }
   .modal-instructions li:last-child { margin-bottom: 0; }
 
-  .modal-actions { display: flex; gap: 12px; }
+  /* Tombol Konfirmasi Berjejer */
+  .modal-actions { display: flex; flex-direction: column; gap: 10px; }
+  .modal-actions-row { display: flex; gap: 10px; width: 100%; }
+
+  .modal-btn-wa, .modal-btn-tg {
+    flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px;
+    border: none; border-radius: 12px; color: #fff; font-family: 'Syne', sans-serif; font-weight: 700; 
+    font-size: 0.85rem; letter-spacing: 0.5px; cursor: pointer; transition: 0.3s;
+  }
+  .modal-btn-wa { background: linear-gradient(135deg, var(--wa-green), #128c7e); box-shadow: 0 5px 15px rgba(37,211,102,0.2); }
+  .modal-btn-wa:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(37,211,102,0.4); }
+  
+  .modal-btn-tg { background: linear-gradient(135deg, var(--tg-blue), #00aaff); box-shadow: 0 5px 15px rgba(0,136,204,0.2); }
+  .modal-btn-tg:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,136,204,0.4); }
 
   .modal-btn-close {
-    flex: 1; padding: 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1);
+    width: 100%; padding: 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1);
     border-radius: 12px; color: var(--text-muted); font-family: 'Syne', sans-serif; font-weight: 600; font-size: 0.9rem;
     cursor: pointer; transition: 0.3s;
   }
   .modal-btn-close:hover { background: rgba(255,45,120,0.1); border-color: var(--neon-pink); color: var(--neon-pink); }
-
-  .modal-btn-wa {
-    flex: 2; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px;
-    background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple)); border: none; border-radius: 12px;
-    color: #fff; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.5px;
-    cursor: pointer; transition: 0.3s; box-shadow: 0 5px 15px rgba(0,212,255,0.2);
-  }
-  .modal-btn-wa i { font-size: 1.2rem; }
-  .modal-btn-wa:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,212,255,0.4); }
 
   /* ── FEATURES ── */
   .features { padding: 100px 24px; }
@@ -435,9 +437,16 @@
   .footer-logo { display: flex; align-items: center; justify-content: center; gap: 10px; font-family: 'Orbitron', sans-serif; font-size: 1.5rem; font-weight: 900; letter-spacing: 2px; color: #fff; margin-bottom: 16px; text-transform: uppercase; }
   .footer-logo i { color: var(--neon-blue); }
   .footer-tagline { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 40px; }
-  .footer-wa { display: inline-flex; align-items: center; gap: 12px; padding: 16px 32px; background: rgba(37,211,102,0.1); border: 1px solid rgba(37,211,102,0.3); color: #25d366; font-weight: 700; font-size: 1rem; border-radius: 16px; text-decoration: none; transition: all 0.3s; cursor: none; }
-  .footer-wa i { font-size: 1.4rem; }
+  
+  .footer-contact { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .footer-wa { display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; background: rgba(37,211,102,0.1); border: 1px solid rgba(37,211,102,0.3); color: #25d366; font-weight: 700; font-size: 0.95rem; border-radius: 16px; text-decoration: none; transition: all 0.3s; cursor: none; }
+  .footer-wa i { font-size: 1.3rem; }
   .footer-wa:hover { background: rgba(37,211,102,0.2); box-shadow: 0 10px 30px rgba(37,211,102,0.2); transform: translateY(-3px); }
+  
+  .footer-tg { display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; background: rgba(0,136,204,0.1); border: 1px solid rgba(0,136,204,0.3); color: var(--tg-blue); font-weight: 700; font-size: 0.95rem; border-radius: 16px; text-decoration: none; transition: all 0.3s; cursor: none; }
+  .footer-tg i { font-size: 1.3rem; }
+  .footer-tg:hover { background: rgba(0,136,204,0.2); box-shadow: 0 10px 30px rgba(0,136,204,0.2); transform: translateY(-3px); }
+  
   .footer-copy { margin-top: 60px; font-size: 0.8rem; color: rgba(255,255,255,0.3); letter-spacing: 1px; }
 
   /* ── MOBILE ── */
@@ -493,10 +502,11 @@
     </div>
     
     <div class="modal-actions">
+      <div class="modal-actions-row">
+        <button class="modal-btn-wa" id="modalBtnConfirmWA"><i class="ph-fill ph-whatsapp-logo"></i> WA</button>
+        <button class="modal-btn-tg" id="modalBtnConfirmTG"><i class="ph-fill ph-telegram-logo"></i> Telegram</button>
+      </div>
       <button class="modal-btn-close" id="modalBtnClose">Batal</button>
-      <button class="modal-btn-wa" id="modalBtnConfirm">
-        <i class="ph-fill ph-whatsapp-logo"></i> Konfirmasi
-      </button>
     </div>
 
   </div>
@@ -518,8 +528,9 @@
     <p class="hero-sub">Layanan penyedia nomor virtual, fisik, tools blast (File Badak), hingga spesialis jasa unban WhatsApp. Solusi tuntas untuk semua kebutuhan digitalmu.</p>
     
     <div class="hero-cta">
-      <a href="#produk" class="btn-primary"><i class="ph-bold ph-lightning"></i> Lihat Semua Layanan</a>
-      <a href="https://wa.me/6285113036835?text=Halo%20Admin%20yanzmewaaaa%20store,%20saya%20mau%20tanya-tanya%20dulu" target="_blank" class="btn-ghost"><i class="ph ph-headset"></i> Hubungi Kami</a>
+      <a href="#produk" class="btn-primary"><i class="ph-bold ph-lightning"></i> Lihat Layanan</a>
+      <a href="https://wa.me/6285113036835?text=Halo%20Admin%20yanzmewaaaa%20store,%20saya%20mau%20tanya-tanya%20dulu" target="_blank" class="btn-ghost"><i class="ph ph-whatsapp-logo"></i> WA Admin</a>
+      <a href="https://t.me/sweionf" target="_blank" class="btn-ghost"><i class="ph ph-telegram-logo"></i> TG Admin</a>
     </div>
 
     <div class="hero-nav-pills">
@@ -551,7 +562,11 @@
           <div class="card-price-wrap"><div class="card-price">5K</div><div class="card-price-unit">/ nomor</div></div>
           <div class="card-actions">
             <button class="btn-pay" onclick="bukaModal('Nokos Fresh', '5K')"><i class="ph-bold ph-qr-code"></i> Bayar via QRIS</button>
-            <a class="btn-chat" href="https://wa.me/6285113036835?text=Halo%20Admin,%20mau%20tanya%20Nokos%20Fresh%20harga%205k" target="_blank"><i class="ph ph-chat-teardrop-dots"></i> Chat Admin</a>
+            <div class="card-hint">atau tanya-tanya dulu via:</div>
+            <div style="display:flex; gap:8px;">
+              <a class="btn-chat" href="https://wa.me/6285113036835?text=Halo%20Admin,%20mau%20tanya%20Nokos%20Fresh%20harga%205k" target="_blank"><i class="ph ph-whatsapp-logo"></i> WA</a>
+              <a class="btn-chat" href="https://t.me/sweionf" target="_blank"><i class="ph ph-telegram-logo"></i> Telegram</a>
+            </div>
           </div>
         </div>
         
@@ -563,7 +578,11 @@
           <div class="card-price-wrap"><div class="card-price">7K</div><div class="card-price-unit">/ nomor</div></div>
           <div class="card-actions">
             <button class="btn-pay" onclick="bukaModal('Nokos Fresh Bergaransi', '7K')"><i class="ph-bold ph-qr-code"></i> Bayar via QRIS</button>
-            <a class="btn-chat" href="https://wa.me/6285113036835?text=Halo%20Admin,%20mau%20tanya%20Nokos%20Bergaransi%20harga%207k" target="_blank"><i class="ph ph-chat-teardrop-dots"></i> Chat Admin</a>
+            <div class="card-hint">atau tanya-tanya dulu via:</div>
+            <div style="display:flex; gap:8px;">
+              <a class="btn-chat" href="https://wa.me/6285113036835?text=Halo%20Admin,%20mau%20tanya%20Nokos%20Bergaransi%20harga%207k" target="_blank"><i class="ph ph-whatsapp-logo"></i> WA</a>
+              <a class="btn-chat" href="https://t.me/sweionf" target="_blank"><i class="ph ph-telegram-logo"></i> Telegram</a>
+            </div>
           </div>
         </div>
         
@@ -575,7 +594,11 @@
           <div class="card-price-wrap"><div class="card-price">10K</div><div class="card-price-unit">/ nomor</div></div>
           <div class="card-actions">
             <button class="btn-pay" onclick="bukaModal('Nokos Standar Bergaransi', '10K')"><i class="ph-bold ph-qr-code"></i> Bayar via QRIS</button>
-            <a class="btn-chat" href="https://wa.me/6285113036835?text=Halo%20Admin,%20mau%20tanya%20Nokos%20Standar%20harga%2010k" target="_blank"><i class="ph ph-chat-teardrop-dots"></i> Chat Admin</a>
+            <div class="card-hint">atau tanya-tanya dulu via:</div>
+            <div style="display:flex; gap:8px;">
+              <a class="btn-chat" href="https://wa.me/6285113036835?text=Halo%20Admin,%20mau%20tanya%20Nokos%20Standar%20harga%2010k" target="_blank"><i class="ph ph-whatsapp-logo"></i> WA</a>
+              <a class="btn-chat" href="https://t.me/sweionf" target="_blank"><i class="ph ph-telegram-logo"></i> Telegram</a>
+            </div>
           </div>
         </div>
         
@@ -587,7 +610,11 @@
           <div class="card-price-wrap"><div class="card-price">15K</div><div class="card-price-unit">/ nomor</div></div>
           <div class="card-actions">
             <button class="btn-pay" onclick="bukaModal('Nokos Luar Negeri', '15K')"><i class="ph-bold ph-qr-code"></i> Bayar via QRIS</button>
-            <a class="btn-chat" href="https://wa.me/6285113036835?text=Halo%20Admin,%20mau%20tanya%20Nokos%20Luar%20Negeri%20(Request%20Negara)%20harga%2015k" target="_blank"><i class="ph ph-chat-teardrop-dots"></i> Chat Admin</a>
+            <div class="card-hint">atau tanya-tanya dulu via:</div>
+            <div style="display:flex; gap:8px;">
+              <a class="btn-chat" href="https://wa.me/6285113036835?text=Halo%20Admin,%20mau%20tanya%20Nokos%20Luar%20Negeri%20(Request%20Negara)%20harga%2015k" target="_blank"><i class="ph ph-whatsapp-logo"></i> WA</a>
+              <a class="btn-chat" href="https://t.me/sweionf" target="_blank"><i class="ph ph-telegram-logo"></i> Telegram</a>
+            </div>
           </div>
         </div>
         
@@ -599,7 +626,11 @@
           <div class="card-price-wrap"><div class="card-price">25K</div><div class="card-price-unit">/ nomor</div></div>
           <div class="card-actions">
             <button class="btn-pay" onclick="bukaModal('Nokos Premium + Blast', '25K')"><i class="ph-bold ph-qr-code"></i> Bayar via QRIS</button>
-            <a class="btn-chat" href="https://wa.me/6285113036835?text=Halo%20Admin,%20mau%20tanya%20Nokos%20Premium%20Blast%20harga%2025k" target="_blank"><i class="ph ph-chat-teardrop-dots"></i> Chat Admin</a>
+            <div class="card-hint">atau tanya-tanya dulu via:</div>
+            <div style="display:flex; gap:8px;">
+              <a class="btn-chat" href="https://wa.me/6285113036835?text=Halo%20Admin,%20mau%20tanya%20Nokos%20Premium%20Blast%20harga%2025k" target="_blank"><i class="ph ph-whatsapp-logo"></i> WA</a>
+              <a class="btn-chat" href="https://t.me/sweionf" target="_blank"><i class="ph ph-telegram-logo"></i> Telegram</a>
+            </div>
           </div>
         </div>
         
@@ -611,7 +642,11 @@
           <div class="card-price-wrap"><div class="card-price">35K</div><div class="card-price-unit">/ nomor</div></div>
           <div class="card-actions">
             <button class="btn-pay" onclick="bukaModal('Nokos Kartu Asli', '35K')"><i class="ph-bold ph-qr-code"></i> Bayar via QRIS</button>
-            <a class="btn-chat" href="https://wa.me/6285113036835?text=Halo%20Admin,%20mau%20tanya%20Nokos%20Kartu%20Asli%20harga%2035k" target="_blank"><i class="ph ph-chat-teardrop-dots"></i> Chat Admin</a>
+            <div class="card-hint">atau tanya-tanya dulu via:</div>
+            <div style="display:flex; gap:8px;">
+              <a class="btn-chat" href="https://wa.me/6285113036835?text=Halo%20Admin,%20mau%20tanya%20Nokos%20Kartu%20Asli%20harga%2035k" target="_blank"><i class="ph ph-whatsapp-logo"></i> WA</a>
+              <a class="btn-chat" href="https://t.me/sweionf" target="_blank"><i class="ph ph-telegram-logo"></i> Telegram</a>
+            </div>
           </div>
         </div>
         
@@ -623,7 +658,11 @@
           <div class="card-price-wrap"><div class="card-price">100K</div><div class="card-price-unit">/ akun</div></div>
           <div class="card-actions">
             <button class="btn-pay" onclick="bukaModal('WA Meta Verified', '100K')"><i class="ph-bold ph-qr-code"></i> Bayar via QRIS</button>
-            <a class="btn-chat" href="https://wa.me/6285113036835?text=Halo%20Admin,%20mau%20tanya%20WA%20Meta%20Verified%20harga%20100k" target="_blank"><i class="ph ph-chat-teardrop-dots"></i> Chat Admin</a>
+            <div class="card-hint">atau tanya-tanya dulu via:</div>
+            <div style="display:flex; gap:8px;">
+              <a class="btn-chat" href="https://wa.me/6285113036835?text=Halo%20Admin,%20mau%20tanya%20WA%20Meta%20Verified%20harga%20100k" target="_blank"><i class="ph ph-whatsapp-logo"></i> WA</a>
+              <a class="btn-chat" href="https://t.me/sweionf" target="_blank"><i class="ph ph-telegram-logo"></i> Telegram</a>
+            </div>
           </div>
         </div>
 
@@ -649,7 +688,11 @@
           <div class="card-price-wrap"><div class="card-price">15K</div><div class="card-price-unit">/ file</div></div>
           <div class="card-actions">
             <button class="btn-pay" onclick="bukaModal('File Badak Reguler', '15K')"><i class="ph-bold ph-qr-code"></i> Bayar via QRIS</button>
-            <a class="btn-chat" href="https://wa.me/6285113036835?text=Halo%20Admin,%20mau%20tanya%20File%20Badak%20Reguler" target="_blank"><i class="ph ph-chat-teardrop-dots"></i> Chat Admin</a>
+            <div class="card-hint">atau tanya-tanya dulu via:</div>
+            <div style="display:flex; gap:8px;">
+              <a class="btn-chat" href="https://wa.me/6285113036835?text=Halo%20Admin,%20mau%20tanya%20File%20Badak%20Reguler" target="_blank"><i class="ph ph-whatsapp-logo"></i> WA</a>
+              <a class="btn-chat" href="https://t.me/sweionf" target="_blank"><i class="ph ph-telegram-logo"></i> Telegram</a>
+            </div>
           </div>
         </div>
 
@@ -661,7 +704,11 @@
           <div class="card-price-wrap"><div class="card-price">25K</div><div class="card-price-unit">/ file</div></div>
           <div class="card-actions">
             <button class="btn-pay" onclick="bukaModal('File Badak Standar', '25K')"><i class="ph-bold ph-qr-code"></i> Bayar via QRIS</button>
-            <a class="btn-chat" href="https://wa.me/6285113036835?text=Halo%20Admin,%20mau%20tanya%20File%20Badak%20Standar" target="_blank"><i class="ph ph-chat-teardrop-dots"></i> Chat Admin</a>
+            <div class="card-hint">atau tanya-tanya dulu via:</div>
+            <div style="display:flex; gap:8px;">
+              <a class="btn-chat" href="https://wa.me/6285113036835?text=Halo%20Admin,%20mau%20tanya%20File%20Badak%20Standar" target="_blank"><i class="ph ph-whatsapp-logo"></i> WA</a>
+              <a class="btn-chat" href="https://t.me/sweionf" target="_blank"><i class="ph ph-telegram-logo"></i> Telegram</a>
+            </div>
           </div>
         </div>
 
@@ -673,7 +720,11 @@
           <div class="card-price-wrap"><div class="card-price">50K</div><div class="card-price-unit">/ file</div></div>
           <div class="card-actions">
             <button class="btn-pay" onclick="bukaModal('File Badak Premium', '50K')"><i class="ph-bold ph-qr-code"></i> Bayar via QRIS</button>
-            <a class="btn-chat" href="https://wa.me/6285113036835?text=Halo%20Admin,%20mau%20tanya%20File%20Badak%20Premium" target="_blank"><i class="ph ph-chat-teardrop-dots"></i> Chat Admin</a>
+            <div class="card-hint">atau tanya-tanya dulu via:</div>
+            <div style="display:flex; gap:8px;">
+              <a class="btn-chat" href="https://wa.me/6285113036835?text=Halo%20Admin,%20mau%20tanya%20File%20Badak%20Premium" target="_blank"><i class="ph ph-whatsapp-logo"></i> WA</a>
+              <a class="btn-chat" href="https://t.me/sweionf" target="_blank"><i class="ph ph-telegram-logo"></i> Telegram</a>
+            </div>
           </div>
         </div>
 
@@ -698,7 +749,11 @@
           <div class="card-price-wrap"><div class="card-price">10K</div><div class="card-price-unit">/ nomor</div></div>
           <div class="card-actions">
             <button class="btn-pay" onclick="bukaModal('Unban Pembatasan WA', '10K')"><i class="ph-bold ph-qr-code"></i> Bayar via QRIS</button>
-            <a class="btn-chat" href="https://wa.me/6285113036835?text=Halo%20Admin,%20mau%20konsul%20Unban%20Pembatasan%20WA" target="_blank"><i class="ph ph-chat-teardrop-dots"></i> Chat Admin</a>
+            <div class="card-hint">atau tanya-tanya dulu via:</div>
+            <div style="display:flex; gap:8px;">
+              <a class="btn-chat" href="https://wa.me/6285113036835?text=Halo%20Admin,%20mau%20konsul%20Unban%20Pembatasan%20WA" target="_blank"><i class="ph ph-whatsapp-logo"></i> WA</a>
+              <a class="btn-chat" href="https://t.me/sweionf" target="_blank"><i class="ph ph-telegram-logo"></i> Telegram</a>
+            </div>
           </div>
         </div>
 
@@ -709,7 +764,11 @@
           <div class="card-price-wrap"><div class="card-price">25K</div><div class="card-price-unit">/ nomor</div></div>
           <div class="card-actions">
             <button class="btn-pay" onclick="bukaModal('Unban WA Ditinjau', '25K')"><i class="ph-bold ph-qr-code"></i> Bayar via QRIS</button>
-            <a class="btn-chat" href="https://wa.me/6285113036835?text=Halo%20Admin,%20mau%20konsul%20Unban%20WA%20Ditinjau" target="_blank"><i class="ph ph-chat-teardrop-dots"></i> Chat Admin</a>
+            <div class="card-hint">atau tanya-tanya dulu via:</div>
+            <div style="display:flex; gap:8px;">
+              <a class="btn-chat" href="https://wa.me/6285113036835?text=Halo%20Admin,%20mau%20konsul%20Unban%20WA%20Ditinjau" target="_blank"><i class="ph ph-whatsapp-logo"></i> WA</a>
+              <a class="btn-chat" href="https://t.me/sweionf" target="_blank"><i class="ph ph-telegram-logo"></i> Telegram</a>
+            </div>
           </div>
         </div>
 
@@ -720,7 +779,11 @@
           <div class="card-price-wrap"><div class="card-price">40K</div><div class="card-price-unit">/ nomor</div></div>
           <div class="card-actions">
             <button class="btn-pay" onclick="bukaModal('Unban Banned Permanen', '40K')"><i class="ph-bold ph-qr-code"></i> Bayar via QRIS</button>
-            <a class="btn-chat" href="https://wa.me/6285113036835?text=Halo%20Admin,%20mau%20konsul%20Unban%20Banned%20Permanen" target="_blank"><i class="ph ph-chat-teardrop-dots"></i> Chat Admin</a>
+            <div class="card-hint">atau tanya-tanya dulu via:</div>
+            <div style="display:flex; gap:8px;">
+              <a class="btn-chat" href="https://wa.me/6285113036835?text=Halo%20Admin,%20mau%20konsul%20Unban%20Banned%20Permanen" target="_blank"><i class="ph ph-whatsapp-logo"></i> WA</a>
+              <a class="btn-chat" href="https://t.me/sweionf" target="_blank"><i class="ph ph-telegram-logo"></i> Telegram</a>
+            </div>
           </div>
         </div>
 
@@ -762,15 +825,25 @@
       <div class="guar-title">Kepuasan Pelanggan = Prioritas Utama</div>
       <div class="guar-desc">Kami berkomitmen memberikan pelayanan terbaik. Jika ada pertanyaan atau kendala, tim kami siap membantu Anda kapan saja.</div>
     </div>
-    <a href="https://wa.me/6285113036835?text=Halo%20Admin%20yanzmewaaaa%20store,%20saya%20butuh%20bantuan" target="_blank" class="btn-primary"><i class="ph ph-chats-circle"></i> Chat Admin</a>
+    <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+      <a href="https://wa.me/6285113036835?text=Halo%20Admin%20yanzmewaaaa%20store,%20saya%20butuh%20bantuan" target="_blank" class="btn-primary"><i class="ph ph-whatsapp-logo"></i> Hubungi WA Admin</a>
+      <a href="https://t.me/sweionf" target="_blank" class="btn-primary" style="background: linear-gradient(135deg, #0088cc, #00aaff);"><i class="ph ph-telegram-logo"></i> Hubungi Telegram</a>
+    </div>
   </div>
 
   <footer>
     <div class="footer-logo"><i class="ph-fill ph-sim-card"></i> yanzmewaaaa store</div>
     <div class="footer-tagline">Solusi Nomor Kosong Premium & Tools Blast · Fast Respon · Bergaransi</div>
-    <a class="footer-wa" href="https://wa.me/6285113036835?text=Halo%20Admin%20yanzmewaaaa%20store" target="_blank">
-      <i class="ph-fill ph-whatsapp-logo"></i> 0851-1303-6835
-    </a>
+    
+    <div class="footer-contact">
+      <a class="footer-wa" href="https://wa.me/6285113036835?text=Halo%20Admin%20yanzmewaaaa%20store" target="_blank">
+        <i class="ph-fill ph-whatsapp-logo"></i> 0851-1303-6835
+      </a>
+      <a class="footer-tg" href="https://t.me/sweionf" target="_blank">
+        <i class="ph-fill ph-telegram-logo"></i> @sweionf
+      </a>
+    </div>
+
     <div class="footer-copy">© 2026 yanzmewaaaa store — All Rights Reserved</div>
   </footer>
 
@@ -821,7 +894,10 @@
   const btnClose = document.getElementById('modalBtnClose');
   const modalProduct = document.getElementById('modalProductName');
   const modalPrice = document.getElementById('modalProductPrice');
-  const modalBtnWA = document.getElementById('modalBtnConfirm');
+  
+  const modalBtnConfirmWA = document.getElementById('modalBtnConfirmWA');
+  const modalBtnConfirmTG = document.getElementById('modalBtnConfirmTG');
+  
   const modalQRImg = document.getElementById('modalQRImage');
   const qrLoader = document.getElementById('qrLoader');
 
@@ -854,28 +930,27 @@
     
     // Setel gambar otomatis berdasarkan daftarQRIS
     if (daftarQRIS[hargaText]) {
-      // Tunggu gambar selesai didownload baru munculkan
       modalQRImg.onload = function() {
         qrLoader.style.display = 'none';
         modalQRImg.style.display = 'block';
       };
-      // Tangani kalau link gambar rusak/error
       modalQRImg.onerror = function() {
         qrLoader.innerHTML = '<small style="color: var(--neon-pink);">Gagal memuat QRIS</small>';
       };
-      
       modalQRImg.src = daftarQRIS[hargaText];
     } else {
       qrLoader.innerHTML = '<small style="color: var(--neon-pink);">QRIS belum tersedia</small>';
       modalQRImg.src = "";
     }
     
+    // Konfigurasi Link WA
     let pesanWA = `Halo Admin, pembayaran selesai ini screenshot nya (Order: ${namaProduk})`;
     let linkWA = 'https://wa.me/6285113036835?text=' + encodeURIComponent(pesanWA);
+    modalBtnConfirmWA.onclick = function() { window.open(linkWA, '_blank'); };
     
-    modalBtnWA.onclick = function() {
-      window.open(linkWA, '_blank');
-    };
+    // Konfigurasi Link Telegram
+    let linkTG = 'https://t.me/sweionf';
+    modalBtnConfirmTG.onclick = function() { window.open(linkTG, '_blank'); };
     
     modal.classList.add('active');
   }
